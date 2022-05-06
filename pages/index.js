@@ -2,12 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import { firestore } from '../lib/firebase'
-import { collection, onSnapshot } from 'firebase/firestore'
+import Navbar from '../components/Navbar'
+import { db } from '../lib/firebase'
+import { collection, onSnapshot } from '@firebase/firestore'
 
 
 export default function Home() {
-  const colRef= collection(firestore, "doctors")
+  const colRef= collection(db, "doctors")
   onSnapshot(colRef, (snapshot)=>{
     let doctors = []
     snapshot.docs.forEach((doc)=>{
@@ -21,10 +22,7 @@ export default function Home() {
           <title>Health App | Home</title>
       </Head>
       <div className={styles.home} >
-        <div className={styles.home_header}>
-          <Link href="/"><a><h1 className={styles.logo}>Health Center</h1></a></Link>
-          <a><button className={styles.doc_btn}>Doctor</button></a>
-        </div>
+        <Navbar />
         <div className={styles.home_content}>
           <h2>Book A Doctors Appointment</h2>
           <div className={styles.home_content_text}>
@@ -32,7 +30,7 @@ export default function Home() {
          </i></div>
         </div>
         <div className={styles.home_btn}>
-          <Link href="/"><a><button className={styles.sign_btn} >Sign Up</button></a></Link>
+          <Link href="/patientsignup"><a><button className={styles.sign_btn} >Sign Up</button></a></Link>
           <Link href="/"><a><button className={styles.sign_btn} >Login</button></a></Link>
         </div>
       </div>

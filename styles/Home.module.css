@@ -44,6 +44,7 @@
   font-size: 2vw;
   font-weight: 600;
   word-spacing: 10px;
+  margin-bottom: 7vh;
 }
 .home_content_text{
   width: 40vw;
@@ -52,7 +53,7 @@
   font-weight: 500;
 }
 .home_btn{
-  margin-top: 10vh;
+  margin-top: 15vh;
   align-self: center;
   width: fit-content;
 }
