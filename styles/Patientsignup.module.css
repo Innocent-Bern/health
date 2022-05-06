@@ -13,10 +13,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 400px;
+    justify-content: center;
+    height: 30vw;
     width: 40vw;
     margin-top: 10vh;
-    border-radius: 25px;
+    border-radius: 1.5625vw;
     align-self: center;
     background-color: #fff;
 }
@@ -35,9 +36,9 @@
     background: none;
     border: none;
     margin-bottom: 2vh;
-    height: 50px;
+    height: 3.125vw;
     width: 25vw;
-    border-radius: 25px;
+    border-radius: 1.5625vw;
     border: solid 1px black;
     padding-left: 2%;
     font-size: 1vw;
@@ -46,11 +47,11 @@
 .btn{
     border: none;
     background: none;
-    margin-top: 20px;
+    margin-top: 1.25vw;
     color: #fff;
     background: black;
-    height: 50px;
-    width: 120px;
+    height: 3.125vw;
+    width: 7.5vw;
     border-radius: 25px;
     font-size: 1.2vw;
     font-weight: 900;
@@ -61,4 +62,62 @@
 .error_msg{
     color: red;
     font-size: 1vw;
+}
+@media(max-width: 999px){
+    .sign_up_form{
+        margin-top: 10vh;
+        border-radius: 3.125vw;
+        width: 80vw;
+        height: 60vw;
+    }
+    .form_header{
+        font-size: 4vw;
+    }
+    .form_header_cpt{
+        font-size: 2vw;
+    }
+    .form_item input{
+        width: 50vw;
+        height: 6.25vw;
+        font-size: 2vw;
+        border-radius: 3.125vw;
+    }
+    .btn{
+        margin-top: 2.5vw;
+        height: 6.25vw;
+        width: 15vw;
+        font-size: 2.4vw;
+    }
+    .error_msg{
+        font-size: 2vw;
+    }
+}
+@media(max-width:550px){
+    .sign_up_form{
+        margin-top: 20vh;
+        border-radius: 3.125vw;
+        width: 80vw;
+        height: 60vw;
+    }
+    .form_header{
+        font-size: 4vw;
+    }
+    .form_header_cpt{
+        font-size: 2vw;
+    }
+    .form_item input{
+        width: 50vw;
+        height: 6.25vw;
+        font-size: 2vw;
+        border-radius: 3.125vw;
+    }
+    .btn{
+        margin-top: 2.5vw;
+        height: 6.25vw;
+        width: 15vw;
+        font-size: 2.4vw;
+    }
+    .error_msg{
+        font-size: 2vw;
+    }
 }

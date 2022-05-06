@@ -12,9 +12,9 @@ import { useRouter } from "next/router";
 
 const PatientSignup = () => {
     const router= useRouter();
-    const [email, setEmail]= useState("")
-    const [name, setName]= useState("")
-    const [password, setPassword]= useState("")
+    const [email, setEmail]= useState()
+    const [name, setName]= useState()
+    const [password, setPassword]= useState()
     const [error, setError]= useState(false)
     const handleSubmit= (e)=>{
         e.preventDefault()
