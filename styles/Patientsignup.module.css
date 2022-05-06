@@ -58,3 +58,7 @@
     -webkit-box-shadow: 11px 10px 28px -4px rgba(0,0,0,0.52);
     -moz-box-shadow: 11px 10px 28px -4px rgba(0,0,0,0.52);    
 }
+.error_msg{
+    color: red;
+    font-size: 1vw;
+}

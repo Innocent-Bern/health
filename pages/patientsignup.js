@@ -15,6 +15,7 @@ const PatientSignup = () => {
     const [email, setEmail]= useState("")
     const [name, setName]= useState("")
     const [password, setPassword]= useState("")
+    const [error, setError]= useState(false)
     const handleSubmit= (e)=>{
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
@@ -24,10 +25,13 @@ const PatientSignup = () => {
                 }).then(()=>{
                     router.push("/")
                 })
+                .catch((err)=>{
+                    setError(err.message)
+                })
                 
             })
             .catch((err)=>{
-                router.push("/")
+                setError(err.message)
             })
     }
     return ( 
@@ -40,6 +44,7 @@ const PatientSignup = () => {
         <div className={styles.sign_up_page}>
             <Navbar />
             <form className={styles.sign_up_form}>
+                {error && <p className={styles.error_msg}> {error} </p>}
                 <h2 className={styles.form_header}> Welcome {name} </h2>
                 <p className={styles.form_header_cpt}> <i>Patient Sign Up Form</i> </p>
                 <div className={styles.form_item}>
