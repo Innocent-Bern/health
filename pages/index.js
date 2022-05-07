@@ -31,7 +31,7 @@ export default function Home() {
         </div>
         <div className={styles.home_btn}>
           <Link href="/patientsignup"><a><button className={styles.sign_btn} >Sign Up</button></a></Link>
-          <Link href="/"><a><button className={styles.sign_btn} >Login</button></a></Link>
+          <Link href="/patientlogin"><a><button className={styles.sign_btn} >Login</button></a></Link>
         </div>
       </div>
     </>

@@ -1,4 +1,4 @@
-.sign_up_page{
+.login_page{
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -7,16 +7,16 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 2%;    
+    padding: 2%;  
     position: relative;
 }
-.sign_up_form{
+.form{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 30vw;
-    width: 40vw;
+    height: 25vw;
+    width: 30vw;
     border-radius: 1.5625vw;
     align-self: center;
     background-color: #fff;
@@ -25,18 +25,17 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.form_header{
+.form h2{
     font-size: 2vw;
-    font-weight: 800;
-    margin-bottom: 1%;
+    font-weight: 900;
+    margin-bottom: 2%;
     margin-top: 2%;
 }
-.form_header_cpt{
+.caption{
     font-size: 1vw;
-    word-spacing: 10px;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
 }
-.form_item input{
+.form input{
     background: none;
     border: none;
     margin-bottom: 2vh;
@@ -48,7 +47,7 @@
     font-size: 1vw;
     font-weight: bold;
 }
-.btn{
+.form button{
     border: none;
     background: none;
     margin-top: 1.25vw;
@@ -63,63 +62,64 @@
     -webkit-box-shadow: 11px 10px 28px -4px rgba(0,0,0,0.52);
     -moz-box-shadow: 11px 10px 28px -4px rgba(0,0,0,0.52);    
 }
-.error_msg{
-    color: red;
+.err_msg{
     font-size: 1vw;
+    color: red;
 }
-@media(max-width: 999px){
-    .sign_up_form{
-        border-radius: 3.125vw;
-        width: 80vw;
-        height: 60vw;
+
+@media(max-width:999px){
+    .form{
+        height: 50vw;
+        width: 60vw;
+        border-radius: 2.125vw;
     }
-    .form_header{
+    .form h2{
         font-size: 4vw;
     }
-    .form_header_cpt{
+    .caption{
         font-size: 2vw;
     }
-    .form_item input{
-        width: 50vw;
+    .form input{
         height: 6.25vw;
-        font-size: 2vw;
+        width: 50vw;
         border-radius: 3.125vw;
+        border: solid 2px black;
+        font-size: 2vw;
     }
-    .btn{
-        margin-top: 2.5vw;
+    .form button{
         height: 6.25vw;
         width: 15vw;
         font-size: 2.4vw;
     }
-    .error_msg{
+    .err_msg{
         font-size: 2vw;
     }
 }
 @media(max-width:550px){
-    .sign_up_form{
-        border-radius: 3.125vw;
-        width: 80vw;
-        height: 60vw;
+    .form{
+        height: 75vw;
+        width: 90vw;
+        border-radius: 4.6875vw;
     }
-    .form_header{
-        font-size: 4vw;
+    .form h2{
+        font-size: 6vw;
     }
-    .form_header_cpt{
-        font-size: 2vw;
+    .caption{
+        font-size: 3vw;
     }
-    .form_item input{
-        width: 50vw;
-        height: 6.25vw;
-        font-size: 2vw;
-        border-radius: 3.125vw;
+    .form input{
+        height: 9.375vw;
+        width: 75vw;
+        border-radius: 4.6875vw;
+        border: solid 2px black;
+        font-size: 3vw;
     }
-    .btn{
-        margin-top: 2.5vw;
-        height: 6.25vw;
-        width: 15vw;
-        font-size: 2.4vw;
+    .form button{
+        height: 9.275vw;
+        width: 22.5vw;
+        font-size: 3.6vw;
     }
-    .error_msg{
-        font-size: 2vw;
+    .err_msg{
+        font-size: 3vw;
     }
 }

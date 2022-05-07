@@ -2,19 +2,15 @@ import Head from "next/head";
 import styles from "../styles/Patientsignup.module.css"
 import Navbar from "../components/Navbar";
 import { auth } from "../lib/firebase";
-import { 
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut, updateProfile
- } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
 const PatientSignup = () => {
     const router= useRouter();
-    const [email, setEmail]= useState()
-    const [name, setName]= useState()
-    const [password, setPassword]= useState()
+    const [email, setEmail]= useState("")
+    const [name, setName]= useState("")
+    const [password, setPassword]= useState("")
     const [error, setError]= useState(false)
     const handleSubmit= (e)=>{
         e.preventDefault()
