@@ -19,7 +19,7 @@ const PatientSignup = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(()=>{
-                    router.push("/")
+                    router.push("/patient")
                 })
                 .catch((err)=>{
                     setError(err.message)

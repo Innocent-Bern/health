@@ -1,0 +1,52 @@
+.home_page{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+.navigation_panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 17vw;
+    padding-top: 2%;
+    transition: width 0.5s;
+}
+.panel_head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    height: 70px;
+    margin-bottom: 4vh;
+    font-size: 2vw;
+}
+.nav_btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid 3px black;
+    width: 80%;
+    height: 50px;
+    margin-bottom: 3vh;
+    border-radius: 25px;
+    font-size: 2vw;
+    font-weight: 600;
+    transition: all 0.5s;
+}
+.nav_btn:hover{
+    transform: scale(1.1);
+    background-color: black;
+    color: #fff;
+}
+
+.menu_icon,
+.icon{
+    transform: scale(1.2);
+    margin-left: 1vw;
+    margin-right: 1vw;
+    cursor: pointer;
+}
+.menu_icon{
+    transform: scale(1.6);
+}

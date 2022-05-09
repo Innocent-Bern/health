@@ -16,8 +16,7 @@ const PatientLogin = () => {
         
         signInWithEmailAndPassword(auth, email, password)
             .then((cred)=>{
-                router.push("/")
-                setError(false)
+                router.push("/patient")
             })
             .catch((err)=>{
                 setError(err.message)
@@ -32,7 +31,7 @@ const PatientLogin = () => {
             <Navbar />
             <form className={styles.form}>
                 { error && <p className={styles.err_msg}> {error} </p>}
-                <h2>Login</h2>
+                <h2> Patient Login</h2>
                 <p className={styles.caption}> <i>Login with your email and passowrd</i> </p>
                 <input 
                     type="email" 

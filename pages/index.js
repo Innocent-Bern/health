@@ -1,21 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/Navbar'
-import { db } from '../lib/firebase'
-import { collection, onSnapshot } from '@firebase/firestore'
 
 
 export default function Home() {
-  const colRef= collection(db, "doctors")
-  onSnapshot(colRef, (snapshot)=>{
-    let doctors = []
-    snapshot.docs.forEach((doc)=>{
-        doctors.push({ ...doc.data(), id: doc.id })
-    })
-    console.log(doctors);    
-})
   return (
     <>
       <Head>
