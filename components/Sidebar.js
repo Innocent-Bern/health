@@ -6,6 +6,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useEffect, useState } from "react";
+import Link from "next/link";
 const Sidebar = ({setContentWidth, setControlWidth}) => {
     const [toggle, setToggle]= useState(true)
     const [miniToggle, setMiniToggle]= useState(false)
@@ -36,11 +37,21 @@ const Sidebar = ({setContentWidth, setControlWidth}) => {
                 </div>
                 {toggle && <h2 className={styles.panel_name} > Health </h2>}
             </div>
-            <div style={btnWidth} className={styles.nav_btn}> <HomeIcon className={styles.icon} /> {toggle && <p>Home</p>} </div>
-            <div style={btnWidth} className={styles.nav_btn}> <PersonIcon className={styles.icon} /> {toggle && <p>Profile</p> }</div>            
-            <div style={btnWidth} className={styles.nav_btn}> <AddIcon className={styles.icon} /> {toggle && <p>Book</p>} </div>
-            <div style={btnWidth} className={styles.nav_btn}> <WorkHistoryOutlinedIcon className={styles.icon} /> {toggle && <p>History</p>} </div>
-            <div style={btnWidth} className={styles.nav_btn}> <LogoutIcon className={styles.icon} /> {toggle && <p>Sign out</p>}</div>
+            <div style={btnWidth} className={styles.nav_btn}> 
+                <Link href="/patient"><a className={styles.anchor}><HomeIcon className={styles.icon} /> {toggle && <p>Home</p>}</a></Link> 
+            </div>
+            <div style={btnWidth} className={styles.nav_btn}> 
+                <Link href="/patient/profile"><a className={styles.anchor}><PersonIcon className={styles.icon} /> {toggle && <p>Profile</p> }</a></Link> 
+            </div> 
+            <div style={btnWidth} className={styles.nav_btn}> 
+                <Link href="/patient/book"><a className={styles.anchor}><AddIcon className={styles.icon} /> {toggle && <p>Book</p>}</a></Link> 
+            </div> 
+            <div style={btnWidth} className={styles.nav_btn}> 
+                <Link href="/patient/history"><a className={styles.anchor}><WorkHistoryOutlinedIcon className={styles.icon} /> {toggle && <p>History</p>} </a></Link> 
+            </div> 
+            <div style={btnWidth} className={styles.nav_btn}> 
+                <Link href="/patient/logout"><a className={styles.anchor}><LogoutIcon className={styles.icon} /> {toggle && <p>Sign out</p>}</a></Link> 
+            </div>
         </nav>        
      );
 }
