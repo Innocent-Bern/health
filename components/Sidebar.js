@@ -5,41 +5,29 @@ import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 import PersonIcon from '@mui/icons-material/Person';
 import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { useState } from "react";
-const Sidebar = ({setContentWidth}) => {
+import { useEffect, useState } from "react";
+const Sidebar = ({setContentWidth, setControlWidth}) => {
     const [toggle, setToggle]= useState(true)
-    const [panel, setPanel]= useState({width: "20vw"})
-    const [btnWidth, setBtnWidth]= useState({width: "80%"})
-    // const [mouse, setMouse]= useState(false)
+    const [miniToggle, setMiniToggle]= useState(false)
+    const [panel, setPanel]= useState()
+    const [btnWidth, setBtnWidth]= useState()
+
     // toggle the navigation panel
     const handleClick= ()=>{
-        toggle ? setToggle(false) : setToggle(true) 
-        toggle ? setPanel({width: "10vw"}) : setPanel({width: "20vw"})
-        toggle ? setBtnWidth({width: "fit-content"}) : setBtnWidth({width: "80%"})
-        toggle ? setContentWidth({width: "90vw"}) : setContentWidth({width: "80vw"})
-    }
-    // mouse event styles
-    // let mouseIn={
-    //     width: "80%"
-    //  }
-    //  let mouseOut={
-    //      width: "fit-content"
-    //  }
-    // const handleMouseEvent= (e)=>{
-    //     mouse ? setMouse(false) : setMouse(true) ;
-    //     let btn= document.getElementsByClassName(e.target.classList);
-    //     for(let i = 0; i < btn.length; i++){
-    //         btn[i].addEventListener("mouseenter", (e)=>{
-    //             e.target.classList.add("active")
-    //             console.log("In");
-    //         })
-    //         btn[i].addEventListener("mouseleave", (e)=>{
-    //             e.target.classList.remove("active")
-    //             console.log("In");
-    //         })
-    //     }
+        if(window.innerWidth > 550){
+            toggle ? setToggle(false) : setToggle(true) 
+            toggle ? setPanel({width: "10vw"}) : setPanel({width: "20vw"})
+            toggle ? setControlWidth({width: "10vw"}) : setControlWidth({width: "20vw"})
+            toggle ? setBtnWidth({width: "fit-content"}) : setBtnWidth({width: "80%"})
+            toggle ? setContentWidth({width: "90vw"}) : setContentWidth({width: "80vw"})
+            
+        }else if(window.innerWidth <= 550){
+            miniToggle ? setMiniToggle(false) : setMiniToggle(true) 
+            miniToggle ? setPanel({left: "-60vw"}) : setPanel({left: "0"})
+        }
         
-    // }
+    }
+   
     return (    
         <nav style={panel} className={styles.navigation_panel}>
             <div style={btnWidth} className={styles.panel_head} >

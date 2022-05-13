@@ -14,8 +14,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 const Patient = () => {
     const [user, setUser]= useState(true)
     const [name, setName]= useState("What's happening baby")
-    const [contentWidth, setContentWidth]= useState({width: "80vw"});
-    
+    const [contentWidth, setContentWidth]= useState();
+    const [controlWidth, setControlWidth]= useState()
     
     return (
         <>
@@ -23,7 +23,10 @@ const Patient = () => {
                 <title>Health App | Patient Homepage</title>
             </Head>
             <div className={styles.home_page}>
-                <Sidebar setContentWidth={setContentWidth} />
+                <div style={controlWidth} className={styles.control}>
+                    
+                </div>
+                <Sidebar setControlWidth={setControlWidth} setContentWidth={setContentWidth} />
                 <div style={contentWidth} className={styles.content} >
                     <div className={styles.top}>
                         <h1 className={styles.name} >Good Evening Jane</h1>
