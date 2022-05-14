@@ -17,10 +17,13 @@ const Book = () => {
                     <h2>Appointment form</h2>
                     <div className={styles.form_item}>
                         <label htmlFor="time">Select Appointment Time</label>
-                        <input type="time" required/>
+                        <input 
+                            type="time" 
+                            required 
+                        />
                     </div>
                     <div className={styles.form_item}>
-                        <label htmlFor="date">Select Appointment Date</label>
+                        <label htmlFor="date">Pick Appointment Date</label>
                         <input type="date" required />
                     </div>
                     <button onClick={e => handleClick(e)} >Book Appointment</button>

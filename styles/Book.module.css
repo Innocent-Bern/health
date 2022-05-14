@@ -5,12 +5,12 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    text-align: center;
 }
 .book h1{
     font-size: 2.5vw;
     font-weight: 700;
     word-spacing: 10px;
-    margin-bottom: 2vh;
 }
 .form{
     display: flex;
@@ -34,6 +34,7 @@
 .form_item{
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     width: 80%;
     margin: 5% 0;
 }
@@ -50,6 +51,8 @@
     padding: 2%;
     font-size: 1.2vw;
     font-weight: 600;
+    width: 100%;
+    height: 45px;
 }
 .form button{
     background: none;
@@ -63,4 +66,25 @@
     border-radius: 25px;
     cursor: pointer;
     margin-top: 2vh;
+}
+@media(max-width:550px){
+    .book h1{
+        font-size: 7.5vw;
+    }
+    .form{
+        height: 50vh;
+        width: 85vw;
+    }
+    .form h2{
+        font-size: 6.6vw;
+    }
+    .form_item label{
+        font-size: 4.5vw;
+    }
+    .form_item input{
+        font-size: 3.6vw;
+    }
+    .form button{
+        font-size: 3.6vw;
+    }
 }
