@@ -1,7 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Patientsignup.module.css"
 import Navbar from "../components/Navbar";
-import { auth } from "../lib/firebase";
+import { auth, patientRef } from "../lib/firebase";
+import { addDoc, setDoc, doc } from "firebase/firestore";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -12,6 +13,8 @@ const PatientSignup = () => {
     const [name, setName]= useState("")
     const [password, setPassword]= useState("")
     const [error, setError]= useState(false)
+
+    // sign up the patients to firebase and add them to the patient database
     const handleSubmit= (e)=>{
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
@@ -19,7 +22,14 @@ const PatientSignup = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(()=>{
-                    router.push("/patient")
+                    setDoc(doc(patientRef, cred.user.uid),{
+                        first_name: name,
+                        email: email
+                    }).then(()=>{
+                        router.push("/patient")
+                    }).catch((err)=>{
+                        setError(err.message)
+                    })
                 })
                 .catch((err)=>{
                     setError(err.message)
