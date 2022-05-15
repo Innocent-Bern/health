@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 30vw;
+    height: 60vh;
     width: 30vw;
     border: solid 2px black;
     border-radius: 25px;
@@ -60,12 +60,33 @@
     color: #fff;
     background-color: black;
     height: 45px;
-    width: 250px;
+    width: 70%;
     font-size: 1.25vw;
     font-weight: 700;
     border-radius: 25px;
     cursor: pointer;
     margin-top: 2vh;
+}
+@media(max-width:999px){
+    .book h1{
+        font-size: 5vw;
+    }
+    .form{
+        width: 60vw;
+        height: 60vh;
+    }
+    .form h2{
+        font-size: 4.4vw;
+    }
+    .form_item label{
+        font-size: 3vw;
+    }
+    .form_item input{
+        font-size: 2.4vw;
+    }
+    .form button{
+        font-size: 2.5vw;
+    }
 }
 @media(max-width:550px){
     .book h1{
@@ -85,6 +106,6 @@
         font-size: 3.6vw;
     }
     .form button{
-        font-size: 3.6vw;
+        font-size: 3.75vw;
     }
 }
