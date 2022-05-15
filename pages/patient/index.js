@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { auth } from "../../lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../../styles/Patient.module.css"
 import AddIcon from '@mui/icons-material/Add';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
@@ -10,16 +10,27 @@ import PersonIcon from '@mui/icons-material/Person';
 import Layout from "../../components/Layout";
 
 const Patient = () => {
-    const [user, setUser]= useState(true)
-    const [name, setName]= useState("What's happening baby")
-    return (
+    const [user, setUser]= useState()
+    const [name, setName]= useState()
+
+    useEffect(()=>{
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+              setUser(true)
+              setName(user.displayName)
+            } else {
+              setUser(false)
+            }
+          });        
+    })
+    return (user &&
         <>
             <Head>
                 <title>Health App | Patient Homepage</title>
             </Head>
             <Layout >
                     <div className={styles.top}>
-                        <h1 className={styles.name} >Good Evening Jane</h1>
+                        <h1 className={styles.name} >Good Evening {name} </h1>
                         <div className={styles.date} > <i>12th April</i> </div>
                     </div>
                     <div className={styles.items}>
@@ -33,7 +44,7 @@ const Patient = () => {
                         </Link>
                         <Link href="/patient/book">
                             <a>
-                                <div className={styles.home_item}>
+                                <div className={styles.home_main}>
                                     <div><AddIcon className={styles.home_icon}/></div>
                                     <h3>Book Appointment</h3>
                                 </div>
