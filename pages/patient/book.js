@@ -19,6 +19,8 @@ const Book = () => {
                         <label htmlFor="time">Select Appointment Time</label>
                         <input 
                             type="time" 
+                            min="09:00"
+                            max="18:00"
                             required 
                         />
                     </div>
