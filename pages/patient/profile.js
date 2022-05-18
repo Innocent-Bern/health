@@ -36,26 +36,27 @@ const Profile = () => {
         </Head>
         <Layout>
             <div className={styles.profile}>
-                <form className={styles.form} >
-                    <h1>Profile Information</h1>
-                    <div className={styles.image_div} ></div>
-                    <div>
-                        <label htmlFor="first_name">First Name: </label>
-                        <input type="text" value={firstName} />
+                <div className={styles.container}>
+                    <h1>Profile Details</h1>
+                    <div className={styles.profile_picture}></div>
+                    <div className={styles.details}>
+                        <div className={styles.patient_details}>
+                            <h2>First Name: <span>Mary</span> </h2>
+                        </div>
+                        <div className={styles.patient_details}>
+                            <h2>Last Name: <span>Maria</span> </h2>
+                        </div>
+                        <div className={styles.patient_details}>
+                            <h2>Email: <span>imnndjidjicjxij@mail.com</span> </h2>
+                        </div>
+                        <div className={styles.patient_details}>
+                            <h2>Phone Number: <span>+25445778</span> </h2>
+                        </div>
+                        <div className={styles.patient_details}>
+                            <h2>Home Address: <span>AjHSDGSDGIRPOE</span> </h2>
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor="second_name">Second Name</label>
-                        <input type="text" value={secondName} placeholder="Add" />
-                    </div>
-                    <div>
-                        <label htmlFor="age">Age</label>
-                        <input type="number" placeholder="Add"/>
-                    </div>
-                    <div>
-                        <label htmlFor="email">Email Address</label>
-                        <input type="email" value={email} disabled/>
-                    </div>
-                </form>                
+                </div>             
             </div>
         </Layout>
         </>
