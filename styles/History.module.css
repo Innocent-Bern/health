@@ -1,0 +1,75 @@
+.history{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.no_appointment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    border: solid 2px black;
+    border-radius: 25px;
+    height: 60vh;
+    width: 40%;
+    text-align: center;
+}
+.no_appointment h1{
+    font-size: 2vw;
+    margin-bottom: 2vh;
+}
+.book{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    border-radius: 25px;
+    width: fit-content;
+    height: 60%;
+    opacity: 0.7;
+    position: relative;
+}
+.book h2{
+    font-size: 2vw;
+}
+.control{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: solid 3px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+.icon{
+    transform: scale(4);
+}
+@media(max-width:999px){
+    .no_appointment{
+        width: 60%;
+    }
+    .no_appointment h1{
+        font-size: 2.75vw;
+    }
+    .book h2{
+        font-size: 2.75vw;
+    }
+}
+@media(max-width:550px){
+    .no_appointment{
+        width: 100%;
+        padding-top: 5%;
+    }
+    .no_appointment h1{
+        font-size: 6vw;
+    }
+    .book h2{
+        font-size: 6vw;
+    }
+}
