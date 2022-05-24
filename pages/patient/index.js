@@ -10,9 +10,17 @@ import PersonIcon from '@mui/icons-material/Person';
 import Layout from "../../components/Layout";
 
 const Patient = () => {
+    const d = new Date()
+    const months=  ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const [user, setUser]= useState()
     const [name, setName]= useState()
-
+    const [greeting, setGreeting]= useState("Good Morning")
+    const [today, setToday]= useState({
+        hour: d.getUTCHours(),
+        day: d.getUTCDate(),
+        month: months[d.getMonth()],
+        year: d.getUTCFullYear(),
+    })
     useEffect(()=>{
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -21,8 +29,15 @@ const Patient = () => {
             } else {
               setUser(false)
             }
-          });        
-    })
+          });   
+        setToday({
+            hour: d.getUTCHours(),
+            day: d.getUTCDate(),
+            month: months[d.getMonth()],
+            year: d.getUTCFullYear(),
+        })
+        today.hour > 12 && today.hour <15 ? setGreeting("Good Afternoon") : setGreeting("Good Morning");
+    },[today.hour])
     return (user &&
         <>
             <Head>
@@ -30,8 +45,8 @@ const Patient = () => {
             </Head>
             <Layout >
                     <div className={styles.top}>
-                        <h1 className={styles.name} >Good Evening {name} </h1>
-                        <div className={styles.date} > <i>12th April</i> </div>
+                        <h1 className={styles.name} > {greeting} {name} </h1>
+                        <div className={styles.date} > <i>{today.day} {today.month} {today.year} </i> </div>
                     </div>
                     <div className={styles.items}>
                         <Link href="/patient/profile">
