@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Patientsignup.module.css"
 import Navbar from "../components/Navbar";
 import { auth, patientRef } from "../lib/firebase";
-import { addDoc, setDoc, doc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { useRouter } from "next/router";

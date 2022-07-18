@@ -6,22 +6,34 @@ import {
     onSnapshot, doc, 
     updateDoc, getDoc, query, where 
 } from "firebase/firestore";
+import { updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import styles from "../../styles/Profile.module.css"
 
 
        
 const Profile = () => {
-    const [firstName, setFirstName]= useState()
-    const [secondName, setSecondName]= useState()
+    const router= useRouter()
+    const [user, setUser]= useState(auth.currentUser)
+    const [profile, setProfile]= useState({
+        firstName: "",
+        secondName: "",
+        email: "",
+        phoneNumber: "",
+        homeAddress: ""
+    })
     const [email, setEmail]= useState()
-    const user= auth.currentUser
+    
     useEffect(()=>{
         if(user){
             const userRef= doc(db, "patients", user.uid)
             onSnapshot(userRef, (userData)=>{
-                setFirstName(userData.data().first_name)
                 setEmail(userData.data().email)
+                setProfile({
+                    firstName: userData.data().first_name
+                })
+                console.log(profile);
             })         
         }else{
             console.log("No such user");
@@ -29,6 +41,31 @@ const Profile = () => {
     }, [user])
       
     // update user profile
+    const handleChange= (e, field)=>{
+        // console.log(e.target.value);
+        console.log(e);
+        setProfile({
+            field: e.target.value
+        })
+    }
+    const handleSubmit= (e)=>{
+        e.preventDefault()
+        updateProfile(auth.currentUser, {
+            displayName: profile.firstName
+        }).then(()=>{
+            const updatedUser= doc(db, "patients", user.uid)
+            updateDoc(updatedUser, {
+                first_name: profile.firstName
+            }).then(()=>{
+                alert("Profile Details Updated")
+            }).catch(()=>{
+                alert("Error Try again")
+            })
+        }).catch(()=>{
+            alert("Error Try Again")
+        })
+        // console.log("Clicked");
+    }
     return ( user &&
         <>
         <Head>
@@ -39,23 +76,37 @@ const Profile = () => {
                 <div className={styles.container}>
                     <h1>Profile Details</h1>
                     <div className={styles.profile_picture}></div>
-                    <div className={styles.details}>
+                    <form className={styles.details}>
                         <div className={styles.patient_details}>
-                            <h2>First Name: <span>Mary</span> </h2>
+                            <label htmlFor="first_name">First Name: </label>
+                            <input 
+                                type="text" 
+                                name="first_name"
+                                value= {profile.firstName}
+                                onChange={e => handleChange(e, "firstName")}
+                            />
                         </div>
                         <div className={styles.patient_details}>
-                            <h2>Last Name: <span>Maria</span> </h2>
+                            <label htmlFor="second_name">Second Name: </label>
+                            <input 
+                                type="text" 
+                                name="second_name"
+                                value= {profile.secondName}
+                                onChange={e=> handleChange(e, "secondName")}
+                                placeholder="Add Second Name"
+                            />                            
                         </div>
                         <div className={styles.patient_details}>
-                            <h2>Email: <span>imnndjidjicjxij@mail.com</span> </h2>
+                            <h2>Email: <span>{email}</span> </h2>
                         </div>
                         <div className={styles.patient_details}>
                             <h2>Phone Number: <span>+25445778</span> </h2>
                         </div>
                         <div className={styles.patient_details}>
-                            <h2>Home Address: <span>AjHSDGSDGIRPOE</span> </h2>
+                            <h2> {profile.homeAddress} </h2>
                         </div>
-                    </div>
+                        <button onClick={e => handleSubmit(e)} >Update Profile</button>
+                    </form>
                 </div>             
             </div>
         </Layout>
